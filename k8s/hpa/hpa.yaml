@@ -1,0 +1,25 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: llm-inference-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: llm-inference-api
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50  # Scale up when CPU usage exceeds 50%
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 30   # Reduce cooldown to 30 seconds
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 30  # Scale down one pod every 30 seconds
