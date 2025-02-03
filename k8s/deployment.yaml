@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-inference-api
+  labels:
+    app: llm-inference-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: llm-inference-api
+  template:
+    metadata:
+      labels:
+        app: llm-inference-api
+    spec:
+      containers:
+      - name: llm-inference-api
+        image: llm-inference-api
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
