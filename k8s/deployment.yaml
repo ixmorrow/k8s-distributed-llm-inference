@@ -17,12 +17,13 @@ spec:
       containers:
       - name: llm-inference-api
         image: llm-inference-api
+        imagePullPolicy: Never
         ports:
         - containerPort: 8000
         resources:
           requests:
-            memory: "500Mi"
+            memory: "1Gi"
             cpu: "250m"
           limits:
-            memory: "1Gi"
+            memory: "2Gi"
             cpu: "500m"
