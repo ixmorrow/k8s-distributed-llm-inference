@@ -16,10 +16,16 @@ spec:
         target:
           type: Utilization
           averageUtilization: 50  # Scale up when CPU usage exceeds 50%
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 70 # Scale up when RAM usage exceeds 70%
   behavior:
     scaleDown:
-      stabilizationWindowSeconds: 30   # Reduce cooldown to 30 seconds
+      stabilizationWindowSeconds: 60   # Reduce cooldown to 60 seconds
       policies:
       - type: Pods
         value: 1
-        periodSeconds: 30  # Scale down one pod every 30 seconds
+        periodSeconds: 60  # Scale down one pod every 30 seconds
