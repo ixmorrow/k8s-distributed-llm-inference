@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: llm-inference-service
 spec:
+  type: LoadBalancer
   selector:
     app: llm-inference-api
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8000
-  type: NodePort

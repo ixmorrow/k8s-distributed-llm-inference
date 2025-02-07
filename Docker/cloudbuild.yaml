@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api:latest', '-f', 'Docker/Dockerfile', '.']
+images:
+- 'us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api:latest'

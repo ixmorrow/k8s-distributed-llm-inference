@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: llm-inference-api
-  labels:
-    app: llm-inference-api
 spec:
   replicas: 2
   selector:
@@ -16,14 +14,11 @@ spec:
     spec:
       containers:
       - name: llm-inference-api
-        image: llm-inference-api
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 8000
+        image: us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api:latestk
         resources:
           requests:
             memory: "1Gi"
-            cpu: "250m"
+            cpu: "500m"
           limits:
             memory: "2Gi"
-            cpu: "500m"
+            cpu: "1000m"
