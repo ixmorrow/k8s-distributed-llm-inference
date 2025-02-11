@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: llm-inference-api
-        image: us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api:latestk
+        image: us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api:latest
         resources:
           requests:
-            memory: "1Gi"
+            memory: "2Gi"
             cpu: "500m"
           limits:
-            memory: "2Gi"
+            memory: "4Gi"
             cpu: "1000m"
