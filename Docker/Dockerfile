@@ -7,7 +7,7 @@ WORKDIR /app
 COPY src/ /app/
 
 # Install dependencies
-RUN pip install --no-cache-dir fastapi uvicorn transformers torch
+RUN pip install --no-cache-dir fastapi uvicorn transformers torch torchvision
 
 # Expose the port for FastAPI
 EXPOSE 8000

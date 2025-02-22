@@ -15,6 +15,7 @@ spec:
       containers:
       - name: llm-inference-api
         image: us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api:latest
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "2Gi"

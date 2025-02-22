@@ -1,14 +1,11 @@
 replicaCount: 2
-
 image:
   repository: us-central1-docker.pkg.dev/liquid-layout-449900-m0/llm-repo/llm-inference-api
   tag: latest
-  pullPolicy: IfNotPresent
-
+  pullPolicy: Always
 service:
   type: LoadBalancer
   port: 80
-
 resources:
   limits:
     cpu: "1000m"
@@ -16,7 +13,6 @@ resources:
   requests:
     cpu: "500m"
     memory: "2Gi"
-
 autoscaling:
   enabled: true
   minReplicas: 2
