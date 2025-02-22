@@ -59,3 +59,11 @@ llm-inference-service   LoadBalancer   34.118.235.217   34.56.220.153   80:32745
 ### Update Helm Chart
 
 The helm chart resides in `llm-inference-chart/` directory. To make any changes to the helm chart, simply make your changes to any files in this directory. Then, run the following command to apply them: `helm upgrade llm-inference ./llm-inference-chart -f llm-inference-chart/values.yaml`
+
+### Delete cluster
+
+Can delete the cluster when you're not using it to save on GCP credits.
+
+`gcloud container clusters delete <Cluster_name> --region <region>
+
+To re-create the cluster, simply run: `gcloud container clusters create-auto <cluster_name> --region <region>`
